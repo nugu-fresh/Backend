@@ -121,6 +121,22 @@ def price(request):
                 'daycheck' : daycheck,  
             }
     else:
+        cursor = connections['default'].cursor()
+        strSql = "select price from PriceOutput natural join FreshProfile where date='{}' and name='{}';".format(future_date, CROP_NAME)
+        result = cursor.execute(strSql)
+        rows = cursor.fetchall()
+        future_price = int(rows[0][0])
+        parameters = {
+            'now_price' : None,
+            'past_price' : None,
+            'change' : None,
+            'change_state' : None,
+            'daycheck' : 2,
+            'EMD_price' : None,
+            'EMD_name' : None,
+            'future_price' : future_price,
+        }
+
 
     ##################################################################################################
     ## EMD Part ##
