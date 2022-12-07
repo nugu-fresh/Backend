@@ -2,24 +2,16 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from . import views
 urlpatterns = [
-    # path('main/',views.main, name='main'),
-    path('health',views.health, name='health'),
-    path('price', views.price, name='price'),
+    path('health', views.health, name='health'),
+    path('answerPrice', views.price, name='answerPrice'),
     path('presentDate', views.price, name='presentDate'),
     path('pastDate', views.price, name='pastDate'),
     path('futureDate',views.price, name='futureDate'),
-    path('present_yesEMD', views.price, name='presentYEMD'),
-    path('past_yesEMD', views.price, name='pastYEMD'),
-    path('future_yesEMD', views.price, name='futureYEMD'),
-    path('present_noEMD', views.price, name='presentYEMD'),
-    path('past_noEMD', views.price, name='pastYEMD'),
-    path('future_noEMD', views.price, name='futureYEMD'),
-    path('askTwilioYesEMD', views.price, name='yesemd'),
-    path('ask.Twilio.noEMD', views.price, name='noemd'),
-    path('Yes_Twilio', views.price, name='yestwilio'),
-    path('No_Twilio', views.price, name='notwilio'),
-    path('yesyes', views.price, name='yesyes'),
-    path('nono', views.price, name='nono'),
-
-
+    # path('noDate',views.wrong, name='noDate'),
+    path('present_rewind', views.price, name='presentRewind'),
+    path('past_rewind', views.price, name='pastRewind'),
+    path('future_rewind',views.price, name='futureRewind'),
+    path('askTwilioYesEMD', views.price, name='askTwilioYesEMD'),
+    path('Y_YesTwilio', views.price, name='Y_YesTwilio'),
+    path('N_Yes_Twilio', views.price, name='N_Yes_Twilio'),
 ]
